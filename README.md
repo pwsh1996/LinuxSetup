@@ -59,6 +59,29 @@ Go down to *Write* then type `yes`
 
 ![image](https://user-images.githubusercontent.com/51274282/160976901-9a86d578-d3a7-48e1-a637-4bdb59b67192.png)
 
+Format the boot partition as fat32
+`mkfs.fat -F 32 /dev/sda1`
+
+Format the swap partition 
+`mkswap /dev/sda2`
+
+To enable it use `swapon /dev/sda2`
+
+To see if it is enabled
+
+![image](https://user-images.githubusercontent.com/51274282/161163770-5fd6921e-b1ad-4fff-82bf-0c1f93f6eeea.png)
+
+Then format the others as EXT4
+```
+mkfs.ext4 /dev/sda3
+
+mkfs.ext4 /dev/sda4
+```
+
+
+
+
+
 ## Sources
 <a href="https://www.youtube.com/watch?v=H1ieRvLRxP0"> Some Ordinary Gamers | YouTube </a>
 
