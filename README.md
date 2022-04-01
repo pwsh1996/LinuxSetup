@@ -78,6 +78,53 @@ mkfs.ext4 /dev/sda3
 mkfs.ext4 /dev/sda4
 ```
 
+## Mounting the Partitions
+
+Mount the root partition `mount /dev/sda3 /mnt` 
+
+Then `mkdir /mnt/boot` and `mkdir /mnt/home`
+
+Then `mount /dev/sda1 /mnt/boot`
+
+## Checking your mirrors
+
+Backup your pacman mirrors file `cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak`
+
+`pacman -Sy` to update the database
+
+`pacman -S pacman-contrib` for the rankmirrors tool
+
+`rankmirrors -n 6 /etc/pacman.d/mirrorlist.bak > /etc/pacman.d/mirrorlist`
+
+## Installing
+
+`pacstrap -i /mnt base base-devel linux linux-firmware linux-headers` (possibly run it without linux-firmware)
+
+`genfstab -U -p /mnt >> /mnt/etc/fstab`
+
+`arch-chroot /mnt` to change root into the mount
+
+Install some extra packages *nano* and *man-db*
+
+## Setting a few more preferences
+
+`nano /etc/locale.gen` and the uncomment the line *en_US.UTF-8 UTF-8*
+
+Run `locale-gen`
+
+![image](https://user-images.githubusercontent.com/51274282/161170372-6fef749e-d1a8-4082-bf99-175da7a431ae.png)
+
+`echo LANG=en_US.UTF-8 > /etc/locale.conf`
+
+create a symbolic link `ln -sf /usr/share/zoneinfo/America/Chicago > /etc/localtime`
+
+`hwclock --systohc`
+
+Set the hostname `echo computer > /etc/hostname` to name it computer
+
+Edit the /etc/pacman.conf to allow 32 bit applications, uncomment the lines about multilib
+
+![image](https://user-images.githubusercontent.com/51274282/161172537-69b101b0-3023-4808-8393-1b898f5fba2e.png)
 
 
 
