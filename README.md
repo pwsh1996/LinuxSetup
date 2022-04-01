@@ -126,11 +126,49 @@ Edit the /etc/pacman.conf to allow 32 bit applications, uncomment the lines abou
 
 ![image](https://user-images.githubusercontent.com/51274282/161172537-69b101b0-3023-4808-8393-1b898f5fba2e.png)
 
+If it is an SSD enable trim service `systemctl enable fstrim.timer`
+
+## Users
+
+`passwd` to create the root password
+
+Create your user `useradd -m -g users -G wheel,storage,power -s /bin/bash jmin` then make them a password `passwd jmin`
+
+Modify suders file by `EDITOR=nano visudo` to view the file /etc/sudoers
+
+## Boot Loader and Junk
+
+if running UEFI `mount -t eficarfs efivarfs /sys/firmware/efi/efivars/`
+
+to install bootctl
+
+`bootctl install` then `nano /boot/loader/entries/default.conf`
+```
+title Arch Linux
+linux /vmlinuz-linux
+initrd /intel-ucode.img
+initrd /initramfs-linux.img
+```
+`pacman -S intel-ucode`
+
+`echo "options root=PARUUID=$(blkid -s PARTUUID -o value /dev/sda3) rw" >> /boot/loader/entries/default.conf`
+
+To install Grub
+
+pacman -S grub
+grub-install /dev/sda
+grub-mkconfig -o /boot/grub/grub.cfg
+
+
+
+install package dhcpcd
 
 
 
 ## Sources
 <a href="https://www.youtube.com/watch?v=H1ieRvLRxP0"> Some Ordinary Gamers | YouTube </a>
 
-<a href="https://www.youtube.com/watch?v=rUEnS1zj1DM"> Mental Outlaw | Youtube </a>
+<a href="https://www.youtube.com/watch?v=rUEnS1zj1DM"> Mental Outlaw | YouTube </a>
+
+<a href="https://www.youtube.com/watch?v=nSHOb8YU9Gw&t=720s"> Luke Smith | YouTube </a>
 
