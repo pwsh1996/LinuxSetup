@@ -88,6 +88,8 @@ Then `mkdir /mnt/boot` and `mkdir /mnt/home`
 
 Then `mount /dev/sda1 /mnt/boot`
 
+Then `mount /dev/sda4 /mnt/home`
+
 ## Checking your mirrors
 
 Backup your pacman mirrors file `cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak`
