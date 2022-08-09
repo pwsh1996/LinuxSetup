@@ -33,7 +33,7 @@ Formating the disk use *cgdisk* <br>
 Select **New** <br>
 For the sector hit enter <br>
 For the size I'd use **300MiB** <sub><a href="https://www.gnu.org/software/grub/manual/grub/html_node/BIOS-installation.html#BIOS-installation"> BIOS Installation | GNU </a></sub> <br>  <!-- Minimum is 31KiB, the GNU page recommends 1MiB, the Arch Wiki goes from 2MiB-300MiB, SomeOrdinaryGamer did 1024MiB and MentalOutlaw did 128MiB, will update if 300MiB isn't good-->
-For the code **EF02**
+For the code **EF00**
 For the name **boot**
 
 ### Swap
@@ -46,7 +46,7 @@ For the name **swap**
 ### Root
 Select **New** <br>
 For the sector hit enter <br>
-For the size *~22GiB* <br>
+For the size *30GiB* <br>
 For the code **8300** <br>
 For the name **root**
 
