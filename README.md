@@ -155,7 +155,7 @@ to install bootctl
 `bootctl install` then `nano /boot/loader/entries/default.conf`
 ```
 title Arch Linux
-linux /vmlinux-linux
+linux /vmlinuz-linux
 initrd /intel-ucode.img
 initrd /initramfs-linux.img
 ```
