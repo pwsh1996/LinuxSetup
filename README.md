@@ -100,7 +100,7 @@ Backup your pacman mirrors file `cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirro
 
 ## Installing
 
-`pacstrap -i /mnt base base-devel linux linux-firmware linux-headers nano bash-completion man-db intel-ucode dhcpcd networkmanager` (possibly run it without linux-firmware)
+`pacstrap -i /mnt base base-devel linux linux-firmware linux-headers nano bash-completion man-db intel-ucode dhcpcd networkmanager`
 
 `genfstab -U -p /mnt >> /mnt/etc/fstab`
 
@@ -146,7 +146,7 @@ Uncomment the line `%wheel ALL=(ALL) ALL` and add the line `Defaults rootpw`
 
 to install bootctl
 
-`bootctl install` then `nano /boot/loader/entries/default.conf`
+`bootctl install` then `nano /boot/loader/entries/arch.conf`
 ```
 title Arch Linux
 linux /vmlinuz-linux
@@ -155,6 +155,14 @@ initrd /initramfs-linux.img
 ```
 
 `echo "options root=PARUUID=$(blkid -s PARTUUID -o value /dev/sda3) rw" >> /boot/loader/entries/default.conf`
+
+Create the loader.conf `nano /boot/loader/loader.conf`<sub><a href="https://man.archlinux.org/man/loader.conf.5#OPTIONS"> loader.conf | ArchWiki </a></sub>
+```
+timeout 3
+console-mode 0
+editor no
+default arch.conf
+```
 
 ## Network Junk
 
