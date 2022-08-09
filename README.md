@@ -142,6 +142,10 @@ Create your user `useradd -m -g users -G wheel,storage,power -s /bin/bash jmin` 
 
 Modify suders file by `EDITOR=nano visudo` to view the file /etc/sudoers
 
+Uncomment the line `%wheel ALL=(ALL) ALL`
+
+Add the line `Defaults rootpw`
+
 ## Boot Loader and Junk
 
 if running UEFI `mount -t eficarfs efivarfs /sys/firmware/efi/efivars/`
