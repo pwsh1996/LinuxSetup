@@ -26,6 +26,8 @@ Wipe the disk using *gdisk* if there are already partitions on it
 
 ![image](https://user-images.githubusercontent.com/51274282/160976564-0c919196-ad91-404d-b0e6-1ef6044c7a03.png)
 
+`x` goes into expert mode, `z` for zap, then `y` for yes.
+
 Formating the disk use *cgdisk* <br>
 ### Boot
 Select **New** <br>
