@@ -108,7 +108,7 @@ Backup your pacman mirrors file `cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirro
 
 `arch-chroot /mnt` to change root into the mount
 
-Install some extra packages *nano* and *man-db*
+Install some extra packages *nano*, *bash-completion*, and *man-db*
 
 ## Setting a few more preferences
 
