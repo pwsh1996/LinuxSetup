@@ -2,7 +2,7 @@
 
 ## Prerequisites 
 
-Boot into Arch using the ISO https://archlinux.org/download/ (I'm using version 2022.03.01)
+Boot into Arch using the ISO https://archlinux.org/download/ (I'm using version 2022.08.05)
 
 To check if you are using UEFI run `efivar -l` if your output is ```efivar: error listing variables: Function not implemented``` then you are not in UEFI mode and are using Legacy BIOS.<sub><a href="https://wiki.archlinux.org/title/Installation_guide#Verify_the_boot_mode">Verify the boot mode | ArchWiki </a></sub>
 
