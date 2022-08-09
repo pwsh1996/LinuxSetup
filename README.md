@@ -84,11 +84,9 @@ mkfs.ext4 /dev/sda4
 
 Mount the root partition `mount /dev/sda3 /mnt` 
 
-Then `mkdir /mnt/boot` and `mkdir /mnt/home`
+Then `mount --mkdir /dev/sda1 /mnt/boot`
 
-Then `mount /dev/sda1 /mnt/boot`
-
-Then `mount /dev/sda4 /mnt/home`
+Then `mount --mkdir /dev/sda4 /mnt/home`
 
 ## Checking your mirrors
 
@@ -102,13 +100,11 @@ Backup your pacman mirrors file `cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirro
 
 ## Installing
 
-`pacstrap -i /mnt base base-devel linux linux-firmware linux-headers` (possibly run it without linux-firmware)
+`pacstrap -i /mnt base base-devel linux linux-firmware linux-headers nano bash-completion man-db intel-ucode dhcpcd networkmanager` (possibly run it without linux-firmware)
 
 `genfstab -U -p /mnt >> /mnt/etc/fstab`
 
 `arch-chroot /mnt` to change root into the mount
-
-Install some extra packages *nano*, *bash-completion*, and *man-db*
 
 ## Setting a few more preferences
 
@@ -142,13 +138,11 @@ Create your user `useradd -m -g users -G wheel,storage,power -s /bin/bash jmin` 
 
 Modify suders file by `EDITOR=nano visudo` to view the file /etc/sudoers
 
-Uncomment the line `%wheel ALL=(ALL) ALL`
-
-Add the line `Defaults rootpw`
+Uncomment the line `%wheel ALL=(ALL) ALL` and add the line `Defaults rootpw`
 
 ## Boot Loader and Junk
 
-if running UEFI `mount -t efivarfs efivarfs /sys/firmware/efi/efivars/`
+<!-- if running UEFI `mount -t efivarfs efivarfs /sys/firmware/efi/efivars/` -->
 
 to install bootctl
 
@@ -159,16 +153,12 @@ linux /vmlinuz-linux
 initrd /intel-ucode.img
 initrd /initramfs-linux.img
 ```
-`pacman -S intel-ucode`
 
 `echo "options root=PARUUID=$(blkid -s PARTUUID -o value /dev/sda3) rw" >> /boot/loader/entries/default.conf`
 
 ## Network Junk
-install package dhcpcd
 
-then `systemctl enable dhcpcd@enp0s25.service` where enp0s25 is the interface you get on `ip link`
-
-install networkmanager
+`systemctl enable dhcpcd@enp0s25.service` where enp0s25 is the interface you get on `ip link`
 
 `systemctl enable NetworkManager.service`
 
@@ -178,4 +168,6 @@ install networkmanager
 <a href="https://www.youtube.com/watch?v=rUEnS1zj1DM"> Mental Outlaw | YouTube </a>
 
 <a href="https://www.youtube.com/watch?v=nSHOb8YU9Gw&t=720s"> Luke Smith | YouTube </a>
+
+<a href="https://youtu.be/8Lp2EQMsmL4"> Nice Micro | YouTube </a>
 
