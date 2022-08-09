@@ -144,8 +144,6 @@ Uncomment the line `%wheel ALL=(ALL) ALL` and add the line `Defaults rootpw`
 
 <!-- if running UEFI `mount -t efivarfs efivarfs /sys/firmware/efi/efivars/` -->
 
-to install bootctl
-
 `bootctl install` then `nano /boot/loader/entries/arch.conf`
 ```
 title Arch Linux
