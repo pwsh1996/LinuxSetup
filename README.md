@@ -163,10 +163,14 @@ initrd /initramfs-linux.img
 
 `echo "options root=PARUUID=$(blkid -s PARTUUID -o value /dev/sda3) rw" >> /boot/loader/entries/default.conf`
 
-
+## Network Junk
 install package dhcpcd
 
+then `systemctl enable dhcpcd@enp0s25.service` where enp0s25 is the interface you get on `ip link`
 
+install networkmanager
+
+`systemctl enable NetworkManager.service`
 
 ## Sources
 <a href="https://www.youtube.com/watch?v=H1ieRvLRxP0"> Some Ordinary Gamers | YouTube </a>
