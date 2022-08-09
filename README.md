@@ -120,6 +120,8 @@ Run `locale-gen`
 
 `echo LANG=en_US.UTF-8 > /etc/locale.conf`
 
+`export LANG=en_US.UTF-8`
+
 create a symbolic link `ln -sf /usr/share/zoneinfo/America/Chicago > /etc/localtime`
 
 `hwclock --systohc`
