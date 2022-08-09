@@ -148,7 +148,7 @@ Add the line `Defaults rootpw`
 
 ## Boot Loader and Junk
 
-if running UEFI `mount -t eficarfs efivarfs /sys/firmware/efi/efivars/`
+if running UEFI `mount -t efivarfs efivarfs /sys/firmware/efi/efivars/`
 
 to install bootctl
 
