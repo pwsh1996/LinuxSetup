@@ -163,13 +163,6 @@ initrd /initramfs-linux.img
 
 `echo "options root=PARUUID=$(blkid -s PARTUUID -o value /dev/sda3) rw" >> /boot/loader/entries/default.conf`
 
-To install Grub
-
-pacman -S grub
-grub-install /dev/sda
-grub-mkconfig -o /boot/grub/grub.cfg
-
-
 
 install package dhcpcd
 
