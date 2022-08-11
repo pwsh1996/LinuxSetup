@@ -152,7 +152,13 @@ initrd /intel-ucode.img
 initrd /initramfs-linux.img
 ```
 
-`echo "options root=PARUUID=$(blkid -s PARTUUID -o value /dev/sda3) rw" >> /boot/loader/entries/default.conf`
+`blkid /dev/sda3 >> /boot/loader/entries/arch.conf`
+
+Then edit the last line to look like this
+
+```
+options root="UUID=xxxxxx-xxxxxxx-xxx-xxx" rw
+```
 
 Create the loader.conf `nano /boot/loader/loader.conf`<sub><a href="https://man.archlinux.org/man/loader.conf.5#OPTIONS"> loader.conf | ArchWiki </a></sub>
 ```
