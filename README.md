@@ -174,6 +174,14 @@ default arch.conf
 
 `systemctl enable NetworkManager.service`
 
+## KDE
+install `mesa xorg-server xorg-apps xorg-xinit xorg-twm xorg-xclock xterm`
+`plasma sddm`
+
+sudo systemctl enable sddm.service 
+
+reboot
+
 ## Sources
 <a href="https://www.youtube.com/watch?v=H1ieRvLRxP0"> Some Ordinary Gamers | YouTube </a>
 
